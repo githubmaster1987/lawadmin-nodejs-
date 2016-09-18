@@ -1,0 +1,40 @@
+<div class="login-box">
+		<div class="login-logo">
+			<b>Admin</b>Signup
+		</div>
+		<!-- /.signup-logo -->
+		<div class="login-box-body">
+			<form method="post" name="signupForm" ng-submit="doSignup(signupForm.$valid)">
+				<div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.username.$invalid && !signupForm.username.$pristine }">
+					<input type="text" class="form-control" name="username" ng-model="user.username" placeholder="Username" required />
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+					<p ng-show="signupForm.username.$invalid && !signupForm.username.$pristine" class="help-block">Username is required.</p>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.password.$invalid && !signupForm.password.$pristine }">
+					<input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required />
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					<p ng-show="signupForm.password.$invalid && !signupForm.password.$pristine" class="help-block">Password is required.</p>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.passwordconfirm.$invalid && !signupForm.passwordconfirm.$pristine }">
+					<input type="password" class="form-control" name="passwordconfirm" ng-model="user.passwordconfirm" placeholder="Confirm password" required />
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					<p ng-show="signupForm.passwordconfirm.$invalid && !signupForm.passwordconfirm.$pristine" class="help-block">Confirm Password is required.</p>
+					<p ng-show="signupForm.password.$valid && signupForm.passwordconfirm.$valid && (user.password != user.passwordconfirm)" class="help-block">Password Confirm bad.</p>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.email.$invalid && !signupForm.email.$pristine }">
+					<input type="text" class="form-control" name="email" ng-model="user.email" placeholder="Email" required />
+					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+					<p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine" class="help-block">Email is required.</p>
+				</div>
+				<div class="row">
+					<!-- /.col -->
+					<div class="col-xs-4">
+						<button type="submit" class="btn btn-primary btn-block btn-flat" ng-disabled="signupForm.$invalid || (user.password != user.passwordconfirm)">Sign Up</button>
+					</div>
+					<!-- /.col -->
+				</div>
+			</form>
+		</div>
+		<!-- /.signup-box-body -->
+	</div>
+
